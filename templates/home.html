@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Math Score Predictor</title>
+</head>
+<body>
+  <h1>Student Math Score Predictor</h1>
+
+  <form action="/predictdata" method="post">
+
+    <label>Gender</label><br>
+    <select name="gender" required>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select><br><br>
+
+    <label>Race or ethnicity</label><br>
+    <select name="race_ethnicity" required>
+      <option value="group A">Group A</option>
+      <option value="group B">Group B</option>
+      <option value="group C">Group C</option>
+      <option value="group D">Group D</option>
+      <option value="group E">Group E</option>
+    </select><br><br>
+
+    <label>Parental level of education</label><br>
+    <select name="parental_level_of_education" required>
+      <option value="some high school">Some high school</option>
+      <option value="high school">High school</option>
+      <option value="some college">Some college</option>
+      <option value="associate's degree">Associate's degree</option>
+      <option value="bachelor's degree">Bachelor's degree</option>
+      <option value="master's degree">Master's degree</option>
+    </select><br><br>
+
+    <label>Lunch type</label><br>
+    <select name="lunch" required>
+      <option value="standard">Standard</option>
+      <option value="free/reduced">Free/reduced</option>
+    </select><br><br>
+
+    <label>Test preparation course</label><br>
+    <select name="test_preparation_course" required>
+      <option value="none">None</option>
+      <option value="completed">Completed</option>
+    </select><br><br>
+
+    <label>Reading score (0-100)</label><br>
+    <input type="number" name="reading_score" min="0" max="100" required><br><br>
+
+    <label>Writing score (0-100)</label><br>
+    <input type="number" name="writing_score" min="0" max="100" required><br><br>
+
+    <button type="submit">Predict</button>
+  </form>
+
+  {% if results is not none %}
+  <h2>Predicted math score: {{ results }}</h2>
+  {% endif %}
+</body>
+</html>
